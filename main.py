@@ -83,7 +83,8 @@ def main():
         ]
         for func in functions:
             if func(password):
-                print('1')
+                score += 2
+        score += 0
         reply.set_text("Оценка пароля: %s" % score)
 
     password = urwid.Edit('Password: ', mask='*')
