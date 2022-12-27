@@ -60,12 +60,7 @@ def has_lower_letters(password):
 
 
 def has_symbols(password):
-    symbols = '!@#$%^&*()_+=-ºª•¶§∞¢£™¡§±|"[]{}'
-    found_symbols = 0
-    for symbol in password:
-        if symbol in symbols:
-            found_symbols += 1
-    return found_symbols > 0
+    return any(char in ".,:;!_*-+()/#¤%&)" for char in password)
 
 
 def main():
@@ -83,9 +78,9 @@ def main():
             if func(password):
                 score += 2
         score += 0
-        reply.set_text("Баллы: %s" % score)
+        reply.set_text("Рейтинг этого пароля: %s" % score)
 
-    password = urwid.Edit('Password: ', mask='*')
+    password = urwid.Edit('Введите пароль: ', mask='*')
     reply = urwid.Text(u"")
     menu = urwid.Pile([password, reply])
     menu = urwid.Filler(menu, valign='top')
