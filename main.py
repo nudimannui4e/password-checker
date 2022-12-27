@@ -69,10 +69,8 @@ def has_symbols(password):
 
 
 def main():
-    global score
-    score = 0
-
-    def on_ask_change(password, score):
+    def on_ask_change(edit, password):
+        score = 0
         functions = [
             is_very_long,
             has_digit,
@@ -85,10 +83,10 @@ def main():
             if func(password):
                 score += 2
         score += 0
-        reply.set_text("Оценка пароля: %s" % score)
+        reply.set_text("Баллы: %s" % score)
 
     password = urwid.Edit('Password: ', mask='*')
-    reply = urwid.Text("")
+    reply = urwid.Text(u"")
     menu = urwid.Pile([password, reply])
     menu = urwid.Filler(menu, valign='top')
     urwid.connect_signal(password, 'change', on_ask_change)
