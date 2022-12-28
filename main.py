@@ -1,23 +1,5 @@
 import urwid
 
-
-def test_pass():
-    """Всякие проверки функций ниже"""
-    print(has_digit("rnfUinginr"))  # False
-    print(has_digit("rnvnreiv83282"))  # True
-    print(is_very_long("onrv"))  # False
-    print(is_very_long("ogvorneorenvoernb"))  # True
-    print(has_upper_letters("rnfUinginr"))  # True
-    print(has_letters("ewrewrw"))  # True
-    print(has_letters("ewr321ewrw"))  # True
-    print(has_letters("12341"))  # False
-    print(has_upper_letters("GnoiIGIrg129"))  # True
-    print(has_upper_letters("12971eorin29"))  # False
-    print(has_symbols("onregn04"))  # False
-    print(has_symbols("OVN#O2049)@$"))  # True
-    print(has_symbols("sdaw43W@RR3}}"))
-
-
 def is_very_long(password):
     """Проверка, что символов минимум 12"""
     return len(password) >= 12
