@@ -15,7 +15,17 @@ python main.py
 ## Что внутри
 [urwid](https://gist.github.com/dvmn-tasks/1519bd2c8f775cb7c38f5fb02d9cb6fb) - библиотека, для перехвата вводимых символов, используется для маскировки ввода.
 
-[logging](https://gist.github.com/dvmn-tasks/1519bd2c8f775cb7c38f5fb02d9cb6fb) - встроенная бибилиотека логирования
+[logging](https://gist.github.com/dvmn-tasks/1519bd2c8f775cb7c38f5fb02d9cb6fb) - встроенная бибилиотека логирования, собирающие логи в:
+
+```bash
+.
+├── example.gif
+├── main.log   <---
+├── main.py
+├── README.md
+├── requirements.txt
+└── venv
+```
 
 ## Пример работы
 ![example](example.gif)
