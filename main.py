@@ -1,4 +1,8 @@
 import urwid
+import logging
+
+logger = logging.getLogger(__name__)
+
 
 def is_very_long(password):
     """Проверка, что символов минимум 12"""
@@ -31,6 +35,12 @@ def has_symbols(password):
 
 
 def main():
+    logging.basicConfig(
+        level=logging.DEBUG,
+        filename='main.log',
+        filemode='w',
+        format='%(asctime)s %(levelname)s %(message)s'
+    )
     def on_ask_change(edit, password):
         score = 0
         functions = [
@@ -44,6 +54,9 @@ def main():
         for func in functions:
             if func(password):
                 score += 2
+                logging.debug(f'Сработала проверка: {func.__name__}')
+                logging.info(f'Получено + 2 балла')
+        logging.debug(f'Итого: {score} балла')
         reply.set_text("Рейтинг этого пароля: %s" % score)
 
     password = urwid.Edit('Введите пароль: ', mask='*')
@@ -53,6 +66,6 @@ def main():
     urwid.connect_signal(password, 'change', on_ask_change)
     urwid.MainLoop(menu).run()
 
-
 if __name__ == "__main__":
     main()
+
