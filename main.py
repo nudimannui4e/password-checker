@@ -7,38 +7,22 @@ def is_very_long(password):
 
 def has_digit(password):
     """True - в пароле есть цифры"""
-    found_digit = 0
-    for symbol in password:
-        if symbol.isdigit():
-            found_digit += 1
-    return found_digit > 0
+    return any(symbol.isdigit() for symbol in password)
 
 
 def has_letters(password):
     """True - в пароле есть хотя бы 1 буква"""
-    found_letter = 0
-    for symbol in password:
-        if symbol.isalpha():
-            found_letter += 1
-    return found_letter > 0
+    return any(symbol.isalpha() for symbol in password)
 
 
 def has_upper_letters(password):
     """True - в пароле есть заглавные буквы"""
-    found_upper = 0
-    for symbol in password:
-        if symbol.isupper():
-            found_upper += 1
-    return found_upper > 0
+    return any(symbol.isupper() for symbol in password)
 
 
 def has_lower_letters(password):
     """True - в пароле есть строчные буквы"""
-    found_lower = 0
-    for symbol in password:
-        if symbol.islower():
-            found_lower += 1
-    return found_lower > 0
+    return any(symbol.islower() for symbol in password)
 
 
 def has_symbols(password):
