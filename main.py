@@ -44,7 +44,6 @@ def main():
         for func in functions:
             if func(password):
                 score += 2
-        score += 0
         reply.set_text("Рейтинг этого пароля: %s" % score)
 
     password = urwid.Edit('Введите пароль: ', mask='*')
