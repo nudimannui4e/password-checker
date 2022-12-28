@@ -26,7 +26,8 @@ def has_lower_letters(password):
 
 
 def has_symbols(password):
-    return any(char in ".,:;!_*-+()/#¤%&@[]{}#$%^^&*-_=)" for char in password)
+    return any(not symbol.isalpha() and not symbol.isdigit() for symbol in
+               password)
 
 
 def main():
